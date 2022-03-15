@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\DTO\GetProductData;
 use App\Interfaces\ProductInterface;
+use App\Jobs\SendEmailJob;
 use App\Models\Product;
 
 class ProductService implements ProductInterface
@@ -20,6 +21,13 @@ class ProductService implements ProductInterface
             "name" => $productData->name,
             "article" => $productData->article
         ]);
+    }
+
+
+    public function send(){
+        $details['email'] = 'example@gmail.com';
+
+        dispatch(new SendEmailJob($details));
     }
 
     /**

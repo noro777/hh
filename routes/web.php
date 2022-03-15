@@ -27,12 +27,3 @@ Route::view('/create/products','createProduct')->name('product.create');
 Route::get('/update/products/{id}',[Product::class,'update_view'])->name('product.update');
 Route::post('create/product',[\App\Http\Controllers\Product::class,'store'])->name('create.product')->middleware('isAdmin');
 Route::post('update/product/{id}',[\App\Http\Controllers\Product::class,'update'])->name('update.product')->middleware('isAdmin');
-
-Route::get('email', function(){
-  
-	$details['email'] = 'noro.lavandyan@gmail.com';
-  
-    dispatch(new App\Jobs\SendEmailJob($details));
-  
-    dd('done');
-});

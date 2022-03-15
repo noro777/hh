@@ -34,11 +34,11 @@ class SendEmailJob implements ShouldQueue
     public function handle()
     {
         $data = $this->details;
-        
+
         Mail::send('email', $this->details, function ($m) use ($data) {
             $m->from(config('product.email'), env('APP_NAME'));
 
-            $m->to($data['email'])->subject(__('subject'));
+            $m->to($data['email'])->subject('subject');
         });
     }
 }

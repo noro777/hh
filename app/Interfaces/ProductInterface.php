@@ -20,4 +20,6 @@ interface ProductInterface
      * @return mixed
      */
     public function update(GetProductData $productData, int $id);
+
+    public function send();
 }

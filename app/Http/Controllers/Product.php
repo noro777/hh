@@ -28,6 +28,8 @@ class Product extends Controller
 
         $interface->store($data);
 
+        $interface->send();
+
         return redirect()->route('admin');
     }
 
